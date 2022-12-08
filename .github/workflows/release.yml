@@ -9,6 +9,7 @@ on:
 
 env:
   CONTAINER_NAME: workout-app
+  CONTAINER_PORT: 3100
   IMAGE_NAME: ${{ secrets.DOCKER_HUB_USERNAME }}/${{ github.event.repository.name }}-prod
 
 jobs:
@@ -95,4 +96,4 @@ jobs:
           script: |
             docker pull ${{ env.IMAGE_NAME }}:latest &&
             docker ps -aq --filter name=${{ env.CONTAINER_NAME }} | xargs -r docker stop | xargs -r docker rm &&
-            docker run --name ${{ env.CONTAINER_NAME }} -d -p 3000:3000 ${{ env.IMAGE_NAME }}
+            docker run --name ${{ env.CONTAINER_NAME }} -d -p ${{ env.CONTAINER_PORT }}:${{ env.CONTAINER_PORT }} ${{ env.IMAGE_NAME }}
