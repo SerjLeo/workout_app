@@ -14,7 +14,7 @@ func RunApp() {
 		http.ServeFile(w, r, "./build/index.html")
 	})
 
-	err := http.ListenAndServe(":3000", nil)
+	err := http.ListenAndServe(":3100", nil)
 	if err != nil {
 		log.Fatal(err)
 	}
