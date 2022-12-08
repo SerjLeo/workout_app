@@ -1,0 +1,20 @@
+.app__container {
+  min-height: 100vh;
+  display: flex;
+}
+
+.app_menu {
+  height: 100vh;
+  position: absolute;
+  top: 0;
+}
+
+.app__content {
+  flex-grow: 1;
+  padding: 24px 48px;
+  display: flex;
+  flex-direction: column;
+  @media screen and (max-width: 768px) {
+    padding: 16px;
+  }
+}
